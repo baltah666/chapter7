@@ -1,7 +1,7 @@
 ---
 - name: Install Configuration File
   hosts:
-    - all
+    - automation
   roles:
     - Juniper.junos
   connection: local

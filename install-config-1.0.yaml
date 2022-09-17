@@ -12,6 +12,8 @@
       juniper_junos_config:
         provider:
           host: "{{ ansible_host }}"
+          user: "{{ username }}"
+          passwd: "{{ password }}"
           timeout: 120
         load: merge
         src: "config/nameserver.conf"
