@@ -1,0 +1,22 @@
+system {
+    host-name {{ inventory_hostname }};
+    login {
+        user gns3 {
+            uid 2000;
+            class super-user;
+            authentication {
+                ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCfoFY59YEbHIAeqou/b+0NWPpdfT5OTTKgSlbehXoOs1/o/nizJbHLuaLp1C+SrYPm+ui5LjjBOHfHODzRnMo05EaUNHTKEVibyDSoITWlrCJPSZUnPSsHQT0GNCd0PltAUD/p9ioZ3OkJaK2A3/sJBcNnIIVEisnMvY9RIaIa6ox7RIQ2A8uT5JM6P9MJKoJWbtq6BlcltgsZICdL2DzXsOS9Z/Y14KFWA625R2Y0d1pXa1d9GhiHN4pT3vEEbCfZ6gyDaDuacljUM6b6FWdBnXtDNKkc35Ce6TB3G31x42OuoUF4qRF+qBcS0YFSVcma0uWbPeSVyPnRytu4PyrWXSOZgZJT9UE3ANAR2j5q5M6uqY7tlr/vpVdXadNkRMgCiDwBpyKbDVZGIfnBgruTq18u2kyoPOC9E3Xn0ec0qf10EtHUy8vmF2UHs+jrKx2WbyjZVVMoHGYh/8mL4l5rq4q0ZjkuaAfh3pFkcKwu9hrDcr38UOphKJ5UaXlSHz0= gns3@osboxes"
+            }
+        }
+    }
+    replace:
+    name-server {
+        {{ dns1 }};
+        {{ dns2 }};
+    }
+    services {
+        netconf {
+            ssh;
+        }
+    }
+}
