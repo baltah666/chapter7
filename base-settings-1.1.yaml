@@ -1,7 +1,7 @@
 ---
 - name: Generate and Install Configuration File
   hosts:
-    - automation-2
+    - all
   roles:
     - Juniper.junos
   connection: local
