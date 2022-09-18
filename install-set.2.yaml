@@ -1,7 +1,7 @@
 ---
 - name: Install Configuration File
   hosts:
-    - automation
+    - automation-2
   roles:
     - Juniper.junos
   connection: local
@@ -33,7 +33,6 @@
           passwd: "{{ password }}"
           port: 22
           timeout: 120
-
         load: set
         lines:
           - delete system name-server 198.51.100.100

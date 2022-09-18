@@ -22,7 +22,12 @@
 
     - name: install set commands onto device
       juniper_junos_config:
-        provider: "{{ connection_settings }}"
+        provider:
+          host: "{{ ansible_host }}"
+          port: 22
+          user: "{{ username }}"
+          passwd: "{{ password }}"
+
         load: set
         lines:
           - delete system name-server 198.51.100.100

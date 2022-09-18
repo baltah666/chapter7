@@ -1,4 +1,63 @@
 set system name-server 198.51.100.28
 set system name-server 198.51.100.29
 delete system name-server 198.51.100.10
-set system host-name vsrx-dns1
+delete system syslog
+set system services netconf ssh
+set system service ssh root allow
+set system time-zone Europe/Stockholm
+
+
+set protocols lldp port-id-subtype interface-name
+set protocols lldp port-description-type interface-description
+set protocols lldp neighbour-port-info-display port-id
+set protocols lldp interface all
+set protocols lldp-med interface all
+
+
+edit interface xe-0/0/0
+delet unit 0
+exit
+
+edit interface xe-0/0/1
+delet unit 0
+exit
+
+edit interface xe-0/0/2
+delet unit 0
+exit
+
+edit interface xe-0/0/3
+delet unit 0
+exit
+
+edit interface xe-0/0/4
+delet unit 0
+exit
+
+edit interface xe-0/0/5
+delet unit 0
+exit
+
+edit interface xe-0/0/6
+delet unit 0
+exit
+
+edit interface xe-0/0/7
+delet unit 0
+exit
+
+edit interface xe-0/0/8
+delet unit 0
+exit
+
+edit interface xe-0/0/9
+delet unit 0
+exit
+
+edit interface xe-0/0/10
+delet unit 0
+exit
+
+edit interface xe-0/0/11
+delet unit 0
+exit
