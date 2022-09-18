@@ -1,7 +1,7 @@
 ---
 - name: Generate and Install Configuration File
   hosts:
-    - all
+    - automation-2
   roles:
     - Juniper.junos
   connection: local
@@ -42,4 +42,4 @@
           timeout: 120
         src: "{{ conf_file }}"
         load: replace
-        comment: "playbook base-settings.yaml"
+        comment: "2-playbook base-settings.yaml"
