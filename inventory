@@ -1,6 +1,7 @@
-automation    ansible_host=192.168.174.157     dns1=8.8.8.8    dns2=198.51.100.100
-leaf1         ansible_host=192.168.174.166     dns1=8.8.8.8    dns2=198.51.100.100
-leaf2         ansible_host=192.168.174.167     dns1=8.8.8.8    dns2=198.51.100.100
+automation-1    ansible_host=192.168.174.157     dns1=8.8.8.8    dns2=198.51.100.100
+automation-2    ansible_host=192.168.174.158     dns1=8.8.8.8    dns2=198.51.100.100
+#leaf1         ansible_host=192.168.174.166     dns1=8.8.8.8    dns2=198.51.100.100
+#leaf2         ansible_host=192.168.174.167     dns1=8.8.8.8    dns2=198.51.100.100
 #bilbo      ansible_host=198.51.100.5   dns1=8.8.4.4    dns2=198.51.100.101
 
 [all:vars]
