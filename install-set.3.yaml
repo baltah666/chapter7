@@ -1,0 +1,28 @@
+---
+- name: Install Configuration File
+  hosts:
+    - all
+  roles:
+    - Juniper.junos
+  connection: local
+  gather_facts: no
+
+  vars:
+    connection_settings:
+      host: "{{ ansible_host }}"
+      timeout: 120
+
+  tasks:
+    - name: install set file onto device
+      juniper_junos_config:
+        provider:
+          host: "{{ ansible_host }}"
+          user: "{{ username }}"
+          passwd: "{{ password }}"
+          port: 22
+          timeout: 120
+
+        load: set
+        src: "config/ntp.set"
+        comment: install-set.yaml playbook -- load ntp.set file
+
