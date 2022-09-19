@@ -42,4 +42,4 @@
           timeout: 120
         src: "{{ conf_file }}"
         load: replace
-        comment: "2-playbook base-settings.yaml"
+        comment: "playbook base-settings.yaml"
