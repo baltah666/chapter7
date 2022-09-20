@@ -1,7 +1,7 @@
 ---
 - name: Install Configuration File
   hosts:
-    - automation-2
+    - all
   roles:
     - Juniper.junos
   connection: local
@@ -13,18 +13,6 @@
 #      timeout: 120
 
   tasks:
-    - name: install set file onto device
-      juniper_junos_config:
-        provider:
-          host: "{{ ansible_host }}"
-          user: "{{ username }}"
-          passwd: "{{ password }}"
-          port: 22
-          timeout: 120
-        load: set
-        src: "config/ntp.set"
-        comment: install-set.yaml playbook -- load ntp.set file
-
     - name: install set commands onto device
       juniper_junos_config:
         provider:
@@ -35,6 +23,21 @@
           timeout: 120
         load: set
         lines:
-          - delete system name-server 198.51.100.100
-          - set system name-server 198.51.100.101
-        comment: install-set.yaml playbook -- fix name server address
+          - delete interfaces xe-0/0/0 unit 0 family inet
+          - delete interfaces xe-0/0/1 unit 0 family inet
+          - delete interfaces xe-0/0/2 unit 0 family inet
+          - delete interfaces xe-0/0/3 unit 0 family inet
+          - delete interfaces xe-0/0/4 unit 0 family inet
+          - delete interfaces xe-0/0/5 unit 0 family inet
+          - delete interfaces xe-0/0/6 unit 0 family inet
+          - delete interfaces xe-0/0/7 unit 0 family inet
+          - delete interfaces xe-0/0/8 unit 0 family inet
+          - delete interfaces xe-0/0/9 unit 0 family inet
+          - delete interfaces xe-0/0/10 unit 0 family inet
+          - set protocols lldp port-id-subtype interface-name
+          - set protocols lldp port-description-type interface-description
+          - set protocols lldp neighbour-port-info-display port-id
+          - set protocols lldp interface all
+          - set protocols lldp-med interface all
+
+        comment: install-set.yaml playbook --Bush set of command line 
