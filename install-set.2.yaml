@@ -41,3 +41,8 @@
           - set protocols lldp-med interface all
 
         comment: install-set.yaml playbook --Bush set of command line 
+        diff: yes
+      register: config_results
+
+    - debug:
+        var: config_results
