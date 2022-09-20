@@ -1,0 +1,32 @@
+set system domain-search sero.gic.ericsson.se
+set system domain-search seki.gic.ericsson.se
+set system domain-search npee.gic.ericsson.se
+set system domain-search wrbs.rnd.ki.sw.ericsson.se
+set system domain-search edn.ki.sw.ericsson.se
+set system domain-search rnd.ki.sw.ericsson.se
+set system login message "******************************  Warning  ******************************\nThis is an official computer system and is the property of Ericsson AB.\nIt is for authorized users only. Unauthorized users are prohibited.\nUsers (authorized or unauthorized) have no explicit or implicit\nexpectation of privacy. Any or all uses of this system may be subject\nto one or more of the following actions: interception, monitoring,\nrecording, auditing, inspection and dis>
+set system name-server 10.221.230.86
+set system name-server 10.221.230.87
+set system tacplus-server 134.138.10.68 port 10007
+set system tacplus-server 134.138.10.68 timeout 5
+set system tacplus-server 134.138.10.68 source-address 10.128.237.26
+set system tacplus-server 134.138.10.69 port 10007
+set system tacplus-server 134.138.10.69 timeout 5
+set system tacplus-server 134.138.10.69 source-address 10.128.237.26
+set system accounting events login
+set system accounting events change-log
+set system accounting events interactive-commands
+set system accounting destination tacplus
+set system syslog user * any emergency
+set system syslog file messages any notice
+set system syslog file messages authorization info
+set system syslog file messages archive size 100k
+set system syslog file messages archive files 5
+set system syslog file interactive-commands interactive-commands any
+set system syslog file processes daemon any
+set system syslog file blame authorization info
+set system syslog file blame interactive-commands any
+set system syslog file blame archive size 100k
+set system syslog file blame archive files 5
+set system syslog time-format year
+set system syslog time-format millisecond

@@ -1,0 +1,7 @@
+set protocols lldp port-id-subtype interface-name
+set protocols lldp port-description-type interface-description
+set protocols lldp neighbour-port-info-display port-id
+set protocols lldp interface all
+set protocols lldp-med interface all
+
+

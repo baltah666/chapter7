@@ -1,7 +1,7 @@
 ---
 - name: Install Configuration File
   hosts:
-    - automation
+    - all
   roles:
     - Juniper.junos
   connection: local
@@ -17,7 +17,7 @@
       juniper_junos_config:
         provider: "{{ connection_settings }}"
         load: set
-        src: "config/ntp.set"
+        src: "conf/ntp.set"
         comment: install-set.yaml playbook -- load ntp.set file
 
     - name: install set commands onto device

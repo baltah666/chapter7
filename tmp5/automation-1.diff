@@ -1,0 +1,50 @@
+
+[edit system login]
++   message "******************************  Warning  ******************************\nThis is an official computer system and is the property of Ericsson AB.\nIt is for authorized users only. Unauthorized users are prohibited.\nUsers (authorized or unauthorized) have no explicit or implicit\nexpectation of privacy. Any or all uses of this system may be subject\nto one or more of the following actions: interception, monitoring,\nrecording, auditing, inspection and dis>\n";
+[edit system]
++  domain-search [ sero.gic.ericsson.se seki.gic.ericsson.se npee.gic.ericsson.se wrbs.rnd.ki.sw.ericsson.se edn.ki.sw.ericsson.se rnd.ki.sw.ericsson.se ];
+[edit system name-server]
+    198.51.100.101 { ... }
++   10.221.230.86;
++   10.221.230.87;
+[edit system]
++  tacplus-server {
++      134.138.10.68 {
++          port 10007;
++          timeout 5;
++          source-address 10.128.237.26;
++      }
++      134.138.10.69 {
++          port 10007;
++          timeout 5;
++          source-address 10.128.237.26;
++      }
++  }
++  accounting {
++      events [ login change-log interactive-commands ];
++      destination {
++          tacplus;
++      }
++  }
++  syslog {
++      user * {
++          any emergency;
++      }
++      file messages {
++          any notice;
++          authorization info;
++          archive size 100k files 5;
++      }
++      file interactive-commands {
++          interactive-commands any;
++      }
++      file processes {
++          daemon any;
++      }
++      file blame {
++          authorization info;
++          interactive-commands any;
++          archive size 100k files 5;
++      }
++      time-format year millisecond;
++  }
