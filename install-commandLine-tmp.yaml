@@ -30,8 +30,8 @@
           port: 22
           timeout: 120
         load: set
-        src: "TS33_base_conf.set"
-        comment: install-set.yaml playbook -- load TS33_base_conf.set file
+        src: "base1.set"
+        comment: install-set.yaml playbook -- load base1.set file
 
         diff: yes
         dest_dir: "{{ tmp_dir }}"
