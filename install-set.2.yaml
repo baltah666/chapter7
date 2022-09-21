@@ -42,6 +42,7 @@
 
         comment: install-set.yaml playbook --Bush set of command line 
         diff: yes
+        ignore_warning: yes
       register: config_results
 
     - debug:
