@@ -19,12 +19,6 @@
 
   tasks:
 
-    - name: confirm or create configs directory
-      file:
-        path: "{{ tmp_dir }}"
-        state: directory
-      run_once: yes
-
     - name: install set file onto device
       juniper_junos_config:
         provider: "{{ connection_settings }}"
