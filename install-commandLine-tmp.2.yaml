@@ -32,14 +32,6 @@
         load: set
         src: "base1.set"
         comment: install-set.yaml playbook -- load base1.set file
-
-#        diff: yes
-#        dest_dir: "{{ tmp_dir }}"
-#      register: config_results
-
-#    - debug:
-#        var: config_results
-
         diff: yes
         ignore_warning: yes
       register: config_results
