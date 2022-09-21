@@ -1,7 +1,7 @@
 ---
 - name: Generate and Install Configuration File
   hosts:
-    - all
+    - automation-1
   roles:
     - Juniper.junos
   connection: local
@@ -12,8 +12,8 @@
     conf_file: "{{ tmp_dir}}/{{ inventory_hostname }}.conf"
     netmask: "26"
     username: root
-    terminal_server: 198.51.100.50
-    term_srv_port: 7001
+    terminal_server: 192.168.197.128
+    term_srv_port: 5054
 
   # vars_prompt:
   #   - name: username
@@ -43,7 +43,7 @@
           mode: telnet
           port: "{{ term_srv_port }}"
           user: "{{ username }}"
-          # passwd: "{{ password }}"
+          passwd: "{{ password }}"
           timeout: 120
         src: "{{ conf_file }}"
         load: override

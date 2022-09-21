@@ -1,50 +1,57 @@
 
-[edit system login]
-+   message "******************************  Warning  ******************************\nThis is an official computer system and is the property of Ericsson AB.\nIt is for authorized users only. Unauthorized users are prohibited.\nUsers (authorized or unauthorized) have no explicit or implicit\nexpectation of privacy. Any or all uses of this system may be subject\nto one or more of the following actions: interception, monitoring,\nrecording, auditing, inspection and dis>\n";
 [edit system]
-+  domain-search [ sero.gic.ericsson.se seki.gic.ericsson.se npee.gic.ericsson.se wrbs.rnd.ki.sw.ericsson.se edn.ki.sw.ericsson.se rnd.ki.sw.ericsson.se ];
-[edit system name-server]
-    198.51.100.101 { ... }
-+   10.221.230.86;
-+   10.221.230.87;
-[edit system]
-+  tacplus-server {
-+      134.138.10.68 {
-+          port 10007;
-+          timeout 5;
-+          source-address 10.128.237.26;
-+      }
-+      134.138.10.69 {
-+          port 10007;
-+          timeout 5;
-+          source-address 10.128.237.26;
-+      }
-+  }
-+  accounting {
-+      events [ login change-log interactive-commands ];
-+      destination {
-+          tacplus;
-+      }
-+  }
-+  syslog {
-+      user * {
-+          any emergency;
-+      }
-+      file messages {
-+          any notice;
-+          authorization info;
-+          archive size 100k files 5;
-+      }
-+      file interactive-commands {
-+          interactive-commands any;
-+      }
-+      file processes {
-+          daemon any;
-+      }
-+      file blame {
-+          authorization info;
-+          interactive-commands any;
-+          archive size 100k files 5;
-+      }
-+      time-format year millisecond;
-+  }
++   login {
++       user gns3 {
++           uid 2000;
++           class super-user;
++           authentication {
++               ssh-rsa "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCfoFY59YEbHIAeqou/b+0NWPpdfT5OTTKgSlbehXoOs1/o/nizJbHLuaLp1C+SrYPm+ui5LjjBOHfHODzRnMo05EaUNHTKEVibyDSoITWlrCJPSZUnPSsHQT0GNCd0PltAUD/p9ioZ3OkJaK2A3/sJBcNnIIVEisnMvY9RIaIa6ox7RIQ2A8uT5JM6P9MJKoJWbtq6BlcltgsZICdL2DzXsOS9Z/Y14KFWA625R2Y0d1pXa1d9GhiHN4pT3vEEbCfZ6gyDaDuacljUM6b6FWdBnXtDNKkc35Ce6TB3G31x42OuoUF4qRF+qBcS0YFSVcma0uWbPeSVyPnRytu4PyrWXSOZgZJT9UE3ANAR2j5q5M6uqY7tlr/vpVdXadNkRMgCiDwBpyKbDVZGIfnBgruTq18u2kyoPOC9E3Xn0ec0qf10EtHUy8vmF2UHs+jrKx2WbyjZVVMoHGYh/8mL4l5rq4q0ZjkuaAfh3pFkcKwu9hrDcr38UOphKJ5UaXlSHz0= gns3@osboxes"; ## SECRET-DATA
++           }
++       }
++       message "******************************  Warning  ******************************\nThis is an official computer system and is the property of Aramco AB.\nIt is for authorized users only. Unauthorized users are prohibited.\nUsers (authorized or unauthorized) have no explicit or implicit\nexpectation of privacy. Any or all uses of this system may be subject\nto one or more of the following actions: interception, monitoring,\nrecording, auditing, inspection and dis>\n";
++   }
++   domain-search [ sero.gic.ericsson.se seki.gic.ericsson.se npee.gic.ericsson.se wrbs.rnd.ki.sw.ericsson.se edn.ki.sw.ericsson.se rnd.ki.sw.ericsson.se ];
++   name-server {
++       10.221.230.86;
++       10.221.230.87;
++   }
++   tacplus-server {
++       134.138.10.68 {
++           port 10007;
++           timeout 5;
++           source-address 10.128.237.26;
++       }
++       134.138.10.69 {
++           port 10007;
++           timeout 5;
++           source-address 10.128.237.26;
++       }
++   }
++   accounting {
++       events [ login change-log interactive-commands ];
++       destination {
++           tacplus;
++       }
++   }
++   syslog {
++       user * {
++           any emergency;
++       }
++       file messages {
++           any notice;
++           authorization info;
++           archive size 100k files 5;
++       }
++       file interactive-commands {
++           interactive-commands any;
++       }
++       file processes {
++           daemon any;
++       }
++       file blame {
++           authorization info;
++           interactive-commands any;
++           archive size 100k files 5;
++       }
++       time-format year millisecond;
++   }
