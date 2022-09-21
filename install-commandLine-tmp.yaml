@@ -34,6 +34,7 @@
         comment: install-set.yaml playbook -- load base1.set file
 
         diff: yes
+        ignore_warning: yes
         dest_dir: "{{ tmp_dir }}"
       register: config_results
 
