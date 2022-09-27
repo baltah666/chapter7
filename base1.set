@@ -17,6 +17,7 @@ delete interfaces xe-0/0/7 unit 0 family inet
 delete interfaces xe-0/0/8 unit 0 family inet
 delete interfaces xe-0/0/9 unit 0 family inet
 delete interfaces xe-0/0/10 unit 0 family inet 
+delete interfaces xe-0/0/11 unit 0 family inet 
 set system domain-search sero.gic.ericsson.se
 set system domain-search seki.gic.ericsson.se
 set system domain-search npee.gic.ericsson.se
